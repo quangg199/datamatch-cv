@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://json.schemastore.org/spring-boot.json
+spring:
+  application:
+    name: datamatch
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/datamatch_db
+    username: postgres
+    password: 1
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  ai:
+    openai:
+      api-key: ${GEMINI_API_KEY:your-api-key-here}
+      base-url: https://generativelanguage.googleapis.com/v1beta/openai
+      chat:
+        options:
+          model: gemini-3.5-flash
